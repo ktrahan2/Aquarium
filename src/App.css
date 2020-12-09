@@ -24,6 +24,39 @@ body {
     align-content: center;
     width: 90%;
     height: 90%;
-    
+    background-color: rgba(0, 0, 255, 0.098);
+}
 
+#butterfly {
+    background-color: orange;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    margin: 4px;
+    display: inline-block;
+    top: -10px;
+    left: -10px;
+    opacity: 0.6;
+    border-radius: 5px;
+}
+
+#eel {
+    background-color: green;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    opacity: 0.6;
+
+}
+
+#shark {
+    background-color: blue;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    opacity: 0.6;
+}
+
+#fish-shape {
+    position: relative;
 }
