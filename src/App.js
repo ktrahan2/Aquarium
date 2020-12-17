@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react'
 import './App.css';
 import { gsap } from 'gsap'
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin'
-import { MotionPathHelper } from 'gsap/all';
 import BlueFish from './images/bluefish.png'
 import OrangeFish from './images/orangefish.jpg'
-import { getPositionOnPath, reverseSegment } from 'gsap/utils/paths';
 
 gsap.registerPlugin(MotionPathPlugin)
 
@@ -15,8 +13,9 @@ gsap.registerPlugin(MotionPathPlugin)
 export default function App() {  
 
   gsap.from("#orange-fish", { 
-    duration: 10,
-    repeat: -1,  
+    duration: 70,
+    repeat: -1, 
+    yoyo: true,
     motionPath: {
       path: "#wavepath",
       start: 0,
@@ -25,12 +24,13 @@ export default function App() {
   })
 
   gsap.to("#blue-fish", { 
-    duration: 20, 
+    duration: 100, 
     repeat: -1,
+    yoyo: true,
     motionPath: {
       path: "#circlePath",
-      start: 0,
-      end: 1,
+      start: 1,
+      end: 0,
     }
   }) 
 
