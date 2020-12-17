@@ -1,35 +1,43 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css';
 import { gsap } from 'gsap'
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin'
 import { MotionPathHelper } from 'gsap/all';
+import BlueFish from './images/bluefish.png'
+import OrangeFish from './images/orangefish.jpg'
+import { getPositionOnPath, reverseSegment } from 'gsap/utils/paths';
 
 gsap.registerPlugin(MotionPathPlugin)
 
-export default function App() {
-  
+//fix paths so they are all a loop
+//need to figure out how to rotate fish to look like its swimming in the right direction. 
 
-  gsap.to("#fish-shape", { 
-    duration: 10, 
+export default function App() {  
+
+  gsap.from("#orange-fish", { 
+    duration: 10,
+    repeat: -1,  
     motionPath: {
       path: "#wavepath",
       start: 0,
       end: 1,
     }
   })
-  gsap.to("#cute-fish", { 
-    duration: 10, 
+
+  gsap.to("#blue-fish", { 
+    duration: 20, 
+    repeat: -1,
     motionPath: {
       path: "#circlePath",
       start: 0,
       end: 1,
     }
-  })
-  
+  }) 
+
   return (
     <div id="aquarium">
-      <div id="fish-shape">fiiiiish</div>
-      <img id="cute-fish" src="./cute-fish.png"/>
+      <img className="fish" id="orange-fish" alt="fish" src={OrangeFish}/>
+      <img className="fish" id="blue-fish" alt="fish" src={BlueFish}/>
       <svg 
         width="975" 
         height="780" >
